@@ -91,7 +91,6 @@ let styles = StyleSheet.create({
 		height: height,
 		position: 'absolute',
 		left: 0,
-		bottom: 0,
-		backgroundColor: 'red'
+		bottom: 0
 	}
 });
