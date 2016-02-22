@@ -1,0 +1,1 @@
+## A component with the same UE of Modal for cross-platform support.
