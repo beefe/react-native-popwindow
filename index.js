@@ -21,16 +21,15 @@ export default class PopWindow extends React.Component{
 		children: PropTypes.node.isRequired
 	};
 	static defaultProps = {
-		
+		duration: 300
 	};
 
 	constructor(props, context){
 		super(props, context);
 		this.state = {
-			duration: 300,
 			animVal: new Animated.Value(height),
 			...this._getStateFromProps(this.props)
-		}
+		};
 	}
 
 	shouldComponentUpdate(nextProps, nextState, context){
@@ -72,12 +71,13 @@ export default class PopWindow extends React.Component{
 	}
 
 	render(){
+		alert(this.state.duration)
 		return (
 			<Animated.View style={[styles.animated, {
 				transform: [{
 					translateY: this.state.animVal
 				}]
-			}]}>
+			}, this.state.style]}>
 			{this._getChildren()}
 			</Animated.View>
 		);
