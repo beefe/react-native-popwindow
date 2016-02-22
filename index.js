@@ -71,7 +71,6 @@ export default class PopWindow extends React.Component{
 	}
 
 	render(){
-		alert(this.state.duration)
 		return (
 			<Animated.View style={[styles.animated, {
 				transform: [{
