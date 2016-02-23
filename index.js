@@ -28,6 +28,7 @@ export default class PopWindow extends React.Component{
 		super(props, context);
 		this.state = {
 			animVal: new Animated.Value(height),
+			isPopShow: false,
 			...this._getStateFromProps(this.props)
 		};
 	}
@@ -55,6 +56,9 @@ export default class PopWindow extends React.Component{
 	}
 
 	show(){
+		this.setState({
+			isPopShow: true
+		});
 		Animated.timing(this.state.animVal, {
 			toValue: 0,
 			duration: this.state.duration,
@@ -63,6 +67,9 @@ export default class PopWindow extends React.Component{
 	}
 
 	hide(){
+		this.setState({
+			isPopShow: false
+		});
 		Animated.timing(this.state.animVal, {
 			toValue: height,
 			duration: this.state.duration,
@@ -71,7 +78,7 @@ export default class PopWindow extends React.Component{
 	}
 
 	render(){
-		return (
+		return this.state.isPopShow ? (
 			<Animated.View style={[styles.animated, {
 				transform: [{
 					translateY: this.state.animVal
@@ -79,7 +86,7 @@ export default class PopWindow extends React.Component{
 			}, this.state.style]}>
 			{this._getChildren()}
 			</Animated.View>
-		);
+		) : null;
 	}
 
 };
