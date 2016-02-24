@@ -37,6 +37,11 @@ export default class PopWindow extends React.Component{
 		return true;
 	}
 
+	componentWillReceiveProps(newProps){
+		let newState = this._getStateFromProps(newProps);
+		this.setState(newState);
+	}
+
 	_getStateFromProps(props){
 		let {
 			style,
