@@ -43,6 +43,10 @@ export default class PopWindow extends React.Component{
 		this.setState(newState);
 	}
 
+	componentWillUnmount(){
+		clearTimeout(this.timer);
+	}
+
 	_getStateFromProps(props){
 		let {
 			style,
@@ -78,7 +82,7 @@ export default class PopWindow extends React.Component{
 			isPopShow: false
 		});
 		//wait for the animation end, then remove
-		setTimeout(() => {
+		this.timer = setTimeout(() => {
 			this.setState({
 				isPopNeedRemove: true
 			});
