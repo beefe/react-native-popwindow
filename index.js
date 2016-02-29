@@ -95,6 +95,10 @@ export default class PopWindow extends React.Component{
 		}).start();
 	}
 
+	isShow(){
+		return this.state.isPopShow;
+	}
+
 	render(){
 		return this.state.isPopNeedRemove ? null : (
 			<Animated.View style={[styles.animated, {
